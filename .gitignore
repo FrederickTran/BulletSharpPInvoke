@@ -1,0 +1,11 @@
+BulletSharpPInvoke/.vs/BulletSharpPInvoke/v16/.suo
+BulletSharpPInvoke/obj/
+libbulletc/.vs/
+libbulletc/libbulletc-Linux/libbulletc/
+libbulletc/libbulletc-Windows/libbulletc/
+libbulletc/src/Extras/ConvexDecomposition/out/
+libbulletc/src/Extras/GIMPACTUtils/out/
+libbulletc/src/Extras/HACD/out/
+libbulletc/src/Extras/InverseDynamics/out/
+libbulletc/src/Extras/Serialize/out/
+libbulletc/src/src/out/
