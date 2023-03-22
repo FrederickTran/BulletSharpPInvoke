@@ -173,6 +173,11 @@ btPersistentManifold* btDispatcher_getManifoldByIndexInternal(btDispatcher* obj,
 	return obj->getManifoldByIndexInternal(index);
 }
 
+btPersistentManifold* btDispatcher_getSignalizedManifoldByIndexInternal(btDispatcher* obj, int index)
+{
+	return obj->getManifoldByIndexInternal(index);
+}
+
 btPersistentManifold* btDispatcher_getNewManifold(btDispatcher* obj, const btCollisionObject* b0, const btCollisionObject* b1)
 {
 	return obj->getNewManifold(b0, b1);
@@ -181,6 +186,11 @@ btPersistentManifold* btDispatcher_getNewManifold(btDispatcher* obj, const btCol
 int btDispatcher_getNumManifolds(btDispatcher* obj)
 {
 	return obj->getNumManifolds();
+}
+
+int btDispatcher_getNumSignalizedManifolds(btDispatcher* obj)
+{
+	return obj->getNumSignalizedManifolds();
 }
 
 bool btDispatcher_needsCollision(btDispatcher* obj, const btCollisionObject* body0, const btCollisionObject* body1)

@@ -89,6 +89,8 @@ public:
 
 	virtual int getNumManifolds() const = 0;
 
+	virtual int getNumSignalizedManifolds() const = 0;
+
 	virtual btPersistentManifold* getManifoldByIndexInternal(int index) = 0;
 
 	virtual	btPersistentManifold**	getInternalManifoldPointer() = 0;

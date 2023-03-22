@@ -76,6 +76,8 @@ protected:
 	btCollisionShape*		m_rootCollisionShape;
 
 	int				m_collisionFlags;
+	int				m_selfCollisionSignalBitMask;
+	int				m_targetCollisionSignalBitMask;
 
 	int				m_islandTag1;
 	int				m_companionId;
@@ -435,6 +437,12 @@ public:
 	{
 		m_collisionFlags = flags;
 	}
+
+	void	setCollisionSignalBitMask(int i_self, int i_target)
+	{
+		m_selfCollisionSignalBitMask = i_self;
+		m_targetCollisionSignalBitMask = i_target;
+	}
 	
 	///Swept sphere radius (0.0 by default), see btConvexConvexAlgorithm::
 	btScalar			getCcdSweptSphereRadius() const
@@ -491,6 +499,13 @@ public:
 	int	getUpdateRevisionInternal() const
 	{
 		return m_updateRevision;
+	}
+
+	bool checkShouldFireCollisionSignalWith(const btCollisionObject* i_target) const
+	{
+		return
+			((m_selfCollisionSignalBitMask & i_target->m_targetCollisionSignalBitMask) != 0) ||
+			((i_target->m_selfCollisionSignalBitMask & m_targetCollisionSignalBitMask));
 	}
 
 

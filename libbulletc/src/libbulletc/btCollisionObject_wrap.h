@@ -51,6 +51,7 @@ extern "C"
 	EXPORT void btCollisionObject_setCcdMotionThreshold(btCollisionObject* obj, btScalar ccdMotionThreshold);
 	EXPORT void btCollisionObject_setCcdSweptSphereRadius(btCollisionObject* obj, btScalar radius);
 	EXPORT void btCollisionObject_setCollisionFlags(btCollisionObject* obj, int flags);
+	EXPORT void btCollisionObject_setCollisionSignalBitMask(btCollisionObject* obj, int i_self, int i_target);
 	EXPORT void btCollisionObject_setCollisionShape(btCollisionObject* obj, btCollisionShape* collisionShape);
 	EXPORT void btCollisionObject_setCompanionId(btCollisionObject* obj, int id);
 	EXPORT void btCollisionObject_setContactProcessingThreshold(btCollisionObject* obj, btScalar contactProcessingThreshold);

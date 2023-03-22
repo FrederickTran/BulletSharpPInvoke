@@ -49,6 +49,8 @@ protected:
 
 	btAlignedObjectArray<btPersistentManifold*>	m_manifoldsPtr;
 
+	btAlignedObjectArray<btPersistentManifold*>	m_signalizedManifoldsPtr;
+
 	btManifoldResult	m_defaultManifoldResult;
 
 	btNearCallback		m_nearCallback;
@@ -89,6 +91,11 @@ public:
 		return int( m_manifoldsPtr.size());
 	}
 
+	int getNumSignalizedManifolds() const
+	{
+		return int( m_signalizedManifoldsPtr.size());
+	}
+
 	btPersistentManifold**	getInternalManifoldPointer()
 	{
 		return m_manifoldsPtr.size()? &m_manifoldsPtr[0] : 0;
@@ -98,6 +105,11 @@ public:
 	{
 		return m_manifoldsPtr[index];
 	}
+
+	 btPersistentManifold* getSignalizedManifoldByIndexInternal(int index)
+	 {
+		 return m_signalizedManifoldsPtr[index];
+	 }
 
 	 const btPersistentManifold* getManifoldByIndexInternal(int index) const
 	{

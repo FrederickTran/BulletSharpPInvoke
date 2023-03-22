@@ -80,6 +80,7 @@ public:
 	int	m_companionIdB;
 
 	int m_index1a;
+	int m_indexSignal;
 
 	btPersistentManifold();
 

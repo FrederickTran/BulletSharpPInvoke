@@ -253,6 +253,11 @@ void btCollisionObject_setCollisionFlags(btCollisionObject* obj, int flags)
 	obj->setCollisionFlags(flags);
 }
 
+void btCollisionObject_setCollisionSignalBitMask(btCollisionObject* obj, int i_self, int i_target)
+{
+	obj->setCollisionSignalBitMask(i_self, i_target);
+}
+
 void btCollisionObject_setCollisionShape(btCollisionObject* obj, btCollisionShape* collisionShape)
 {
 	obj->setCollisionShape(collisionShape);
