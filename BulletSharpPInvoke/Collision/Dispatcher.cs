@@ -244,6 +244,16 @@ namespace BulletSharp
 			get { return btDispatcher_getNumManifolds(_native); }
 		}
 
+		public int NumNewSignalizedManifolds
+		{
+			get { return btDispatcher_getNumNewSignalizedManifolds(_native); }
+		}
+
+		public int NumRemovedSignalizedManifolds
+		{
+			get { return btDispatcher_getNumRemovedSignalizedManifolds(_native); }
+		}
+
 		public void Dispose()
 		{
 			Dispose(true);
@@ -301,6 +311,10 @@ namespace BulletSharp
 		static extern IntPtr btDispatcher_getNewManifold(IntPtr obj, IntPtr b0, IntPtr b1);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btDispatcher_getNumManifolds(IntPtr obj);
+		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
+		static extern int btDispatcher_getNumNewSignalizedManifolds(IntPtr obj);
+		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
+		static extern int btDispatcher_getNumRemovedSignalizedManifolds(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		[return: MarshalAs(UnmanagedType.I1)]
 		static extern bool btDispatcher_needsCollision(IntPtr obj, IntPtr body0, IntPtr body1);

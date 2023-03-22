@@ -197,6 +197,11 @@ namespace BulletSharp
 			set { btPersistentManifold_setIndex1a(_native, value); }
 		}
 
+		public int SignalID
+		{
+			get { return btPersistentManifold_getSignalID(_native); }
+		}
+
 		public int NumContacts
 		{
 			get { return btPersistentManifold_getNumContacts(_native); }
@@ -256,6 +261,8 @@ namespace BulletSharp
 		static extern float btPersistentManifold_getContactProcessingThreshold(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btPersistentManifold_getIndex1a(IntPtr obj);
+		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
+		static extern int btPersistentManifold_getSignalID(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btPersistentManifold_getNumContacts(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]

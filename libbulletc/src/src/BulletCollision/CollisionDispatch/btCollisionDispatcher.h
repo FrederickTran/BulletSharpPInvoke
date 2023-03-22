@@ -67,6 +67,7 @@ protected:
 
 	btCollisionConfiguration*	m_collisionConfiguration;
 
+	int			m_signalIDCounter;
 
 public:
 
@@ -206,6 +207,20 @@ public:
 	{
 		m_newSignalizedManifoldsPtr.clear();
 		m_removedSignalizedManifoldsPtr.clear();
+	}
+
+	int getNextSignalID()
+	{
+		m_signalIDCounter = (m_signalIDCounter + 1) % 32767;
+		for (int i = 0; i < m_manifoldsPtr.size(); ++i)
+		{
+			if (m_manifoldsPtr[i]->m_signalID == m_signalIDCounter)
+			{
+				return getNextSignalID();
+			}
+		}
+
+		return m_signalIDCounter;
 	}
 };
 

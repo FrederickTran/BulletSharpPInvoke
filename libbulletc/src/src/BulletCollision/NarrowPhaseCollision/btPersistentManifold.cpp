@@ -31,7 +31,8 @@ btPersistentManifold::btPersistentManifold()
 m_body0(0),
 m_body1(0),
 m_cachedPoints (0),
-m_index1a(0)
+m_index1a(0),
+m_signalID(0)
 {
 }
 

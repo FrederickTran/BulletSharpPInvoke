@@ -79,6 +79,11 @@ int btPersistentManifold_getIndex1a(btPersistentManifold* obj)
 	return obj->m_index1a;
 }
 
+int btPersistentManifold_getSignalID(btPersistentManifold* obj)
+{
+	return obj->m_signalID;
+}
+
 int btPersistentManifold_getNumContacts(btPersistentManifold* obj)
 {
 	return obj->getNumContacts();
