@@ -415,6 +415,11 @@ namespace BulletSharp
 			Dispose(false);
 		}
 
+		public void SetSignalBitMask(int i_self, int i_target)
+        {
+			btCollisionObject_setCollisionSignalBitMask(_native, i_self, i_target);
+		}
+
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btCollisionObject_new();
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -523,6 +528,8 @@ namespace BulletSharp
 		static extern void btCollisionObject_setCcdSweptSphereRadius(IntPtr obj, float radius);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
         static extern void btCollisionObject_setCollisionFlags(IntPtr obj, CollisionFlags flags);
+		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
+        static extern void btCollisionObject_setCollisionSignalBitMask(IntPtr obj, int i_self, int i_target);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btCollisionObject_setCollisionShape(IntPtr obj, IntPtr collisionShape);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
