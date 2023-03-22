@@ -51,6 +51,10 @@ protected:
 
 	btAlignedObjectArray<btPersistentManifold*>	m_signalizedManifoldsPtr;
 
+	btAlignedObjectArray<btPersistentManifold*>	m_newSignalizedManifoldsPtr;
+
+	btAlignedObjectArray<int>	m_removedSignalizedManifoldsPtr;
+
 	btManifoldResult	m_defaultManifoldResult;
 
 	btNearCallback		m_nearCallback;
@@ -96,6 +100,17 @@ public:
 		return int( m_signalizedManifoldsPtr.size());
 	}
 
+
+	int getNumNewSignalizedManifolds() const
+	{
+		return int(m_newSignalizedManifoldsPtr.size());
+	}
+
+	int getNumRemovedSignalizedManifolds() const
+	{
+		return int(m_removedSignalizedManifoldsPtr.size());
+	}
+
 	btPersistentManifold**	getInternalManifoldPointer()
 	{
 		return m_manifoldsPtr.size()? &m_manifoldsPtr[0] : 0;
@@ -109,6 +124,16 @@ public:
 	 btPersistentManifold* getSignalizedManifoldByIndexInternal(int index)
 	 {
 		 return m_signalizedManifoldsPtr[index];
+	 }
+
+	 btPersistentManifold* getNewSignalizedManifoldByIndexInternal(int index)
+	 {
+		 return m_newSignalizedManifoldsPtr[index];
+	 }
+
+	 int getRemovedSignalizedManifoldSignalizedIDByIndexInternal(int index)
+	 {
+		 return m_removedSignalizedManifoldsPtr[index];
 	 }
 
 	 const btPersistentManifold* getManifoldByIndexInternal(int index) const
@@ -177,6 +202,11 @@ public:
 		return m_persistentManifoldPoolAllocator;
 	}
 
+	virtual void onStartSimulation()
+	{
+		m_newSignalizedManifoldsPtr.clear();
+		m_removedSignalizedManifoldsPtr.clear();
+	}
 };
 
 #endif //BT_COLLISION__DISPATCHER_H

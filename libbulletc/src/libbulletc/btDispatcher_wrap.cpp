@@ -175,7 +175,17 @@ btPersistentManifold* btDispatcher_getManifoldByIndexInternal(btDispatcher* obj,
 
 btPersistentManifold* btDispatcher_getSignalizedManifoldByIndexInternal(btDispatcher* obj, int index)
 {
-	return obj->getManifoldByIndexInternal(index);
+	return obj->getSignalizedManifoldByIndexInternal(index);
+}
+
+btPersistentManifold* btDispatcher_getNewSignalizedManifoldByIndexInternal(btDispatcher* obj, int index)
+{
+	return obj->getNewSignalizedManifoldByIndexInternal(index);
+}
+
+int btDispatcher_getRemovedSignalizedManifoldSignalizedIDByIndexInternal(btDispatcher* obj, int index)
+{
+	return obj->getRemovedSignalizedManifoldSignalizedIDByIndexInternal(index);
 }
 
 btPersistentManifold* btDispatcher_getNewManifold(btDispatcher* obj, const btCollisionObject* b0, const btCollisionObject* b1)
@@ -191,6 +201,16 @@ int btDispatcher_getNumManifolds(btDispatcher* obj)
 int btDispatcher_getNumSignalizedManifolds(btDispatcher* obj)
 {
 	return obj->getNumSignalizedManifolds();
+}
+
+int btDispatcher_getNumNewSignalizedManifolds(btDispatcher* obj)
+{
+	return obj->getNumNewSignalizedManifolds();
+}
+
+int btDispatcher_getNumRemovedSignalizedManifolds(btDispatcher* obj)
+{
+	return obj->getNumRemovedSignalizedManifolds();
 }
 
 bool btDispatcher_needsCollision(btDispatcher* obj, const btCollisionObject* body0, const btCollisionObject* body1)

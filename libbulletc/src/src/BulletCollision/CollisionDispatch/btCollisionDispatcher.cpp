@@ -109,6 +109,7 @@ btPersistentManifold*	btCollisionDispatcher::getNewManifold(const btCollisionObj
 	{
 		manifold->m_indexSignal = m_signalizedManifoldsPtr.size();
 		m_signalizedManifoldsPtr.push_back(manifold);
+		m_newSignalizedManifoldsPtr.push_back(manifold);
 	}
 	else
 	{
@@ -146,6 +147,7 @@ void btCollisionDispatcher::releaseManifold(btPersistentManifold* manifold)
 		m_signalizedManifoldsPtr.swap(findIndex, m_signalizedManifoldsPtr.size() - 1);
 		m_signalizedManifoldsPtr[findIndex]->m_indexSignal = findIndex;
 		m_signalizedManifoldsPtr.pop_back();
+		m_removedSignalizedManifoldsPtr.push_back(findIndex);
 	}
 
 	manifold->~btPersistentManifold();

@@ -405,6 +405,7 @@ int	btDiscreteDynamicsWorld::stepSimulation( btScalar timeStep,int maxSubSteps, 
 	BT_PROFILE("stepSimulation");
 
 	int numSimulationSubSteps = 0;
+	m_dispatcher1->onStartSimulation();
 
 	if (maxSubSteps)
 	{

@@ -194,6 +194,21 @@ namespace BulletSharp
             return new PersistentManifold(btDispatcher_getManifoldByIndexInternal(_native, index), true);
 		}
 
+		public PersistentManifold GetSignalizedManifoldByIndexInternal(int index)
+		{
+			return new PersistentManifold(btDispatcher_getSignalizedManifoldByIndexInternal(_native, index), true);
+		}
+
+		public PersistentManifold GetNewSignalizedManifoldByIndexInternal(int index)
+		{
+            return new PersistentManifold(btDispatcher_getNewSignalizedManifoldByIndexInternal(_native, index), true);
+		}
+
+		public int GetRemovedSignalizedManifoldIDByIndexInternal(int index)
+		{
+			return btDispatcher_getRemovedSignalizedManifoldSignalizedIDByIndexInternal(_native, index);
+		}
+
 		public PersistentManifold GetNewManifold(CollisionObject b0, CollisionObject b1)
 		{
 			return new PersistentManifold(btDispatcher_getNewManifold(_native, b0._native, b1._native), true);
@@ -276,6 +291,12 @@ namespace BulletSharp
 		static extern IntPtr btDispatcher_getInternalManifoldPool(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btDispatcher_getManifoldByIndexInternal(IntPtr obj, int index);
+		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
+		static extern IntPtr btDispatcher_getSignalizedManifoldByIndexInternal(IntPtr obj, int index);
+		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
+		static extern IntPtr btDispatcher_getNewSignalizedManifoldByIndexInternal(IntPtr obj, int index);
+		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
+		static extern int btDispatcher_getRemovedSignalizedManifoldSignalizedIDByIndexInternal(IntPtr obj, int index);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btDispatcher_getNewManifold(IntPtr obj, IntPtr b0, IntPtr b1);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]

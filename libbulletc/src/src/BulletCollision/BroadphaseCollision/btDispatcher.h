@@ -90,8 +90,14 @@ public:
 	virtual int getNumManifolds() const = 0;
 
 	virtual int getNumSignalizedManifolds() const = 0;
+	virtual int getNumNewSignalizedManifolds() const = 0;
+	virtual int getNumRemovedSignalizedManifolds() const = 0;
 
 	virtual btPersistentManifold* getManifoldByIndexInternal(int index) = 0;
+
+	virtual btPersistentManifold* getSignalizedManifoldByIndexInternal(int index) = 0;
+	virtual btPersistentManifold* getNewSignalizedManifoldByIndexInternal(int index) = 0;
+	virtual int getRemovedSignalizedManifoldSignalizedIDByIndexInternal(int index) = 0;
 
 	virtual	btPersistentManifold**	getInternalManifoldPointer() = 0;
 
@@ -103,6 +109,7 @@ public:
 
 	virtual	void freeCollisionAlgorithm(void* ptr) = 0;
 
+	virtual void onStartSimulation() = 0;
 };
 
 
