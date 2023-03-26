@@ -103,6 +103,11 @@ public:
 
 	void clearUserCache(btManifoldPoint& pt);
 
+	bool isValidSignalID()
+	{
+		return m_signalID >= 0;
+	}
+
 #ifdef DEBUG_PERSISTENCY
 	void	DebugPersistency();
 #endif //

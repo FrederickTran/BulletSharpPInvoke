@@ -9,3 +9,5 @@ libbulletc/src/Extras/HACD/out/
 libbulletc/src/Extras/InverseDynamics/out/
 libbulletc/src/Extras/Serialize/out/
 libbulletc/src/src/out/
+libbulletc/libbulletc-Android/libs/
+libbulletc/libbulletc-Android/obj/

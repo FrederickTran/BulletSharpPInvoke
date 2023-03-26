@@ -104,11 +104,15 @@ btPersistentManifold*	btCollisionDispatcher::getNewManifold(const btCollisionObj
 	}
 	btPersistentManifold* manifold = new(mem) btPersistentManifold (body0,body1,0,contactBreakingThreshold,contactProcessingThreshold);
 	manifold->m_index1a = m_manifoldsPtr.size();
-	manifold->m_signalID = getNextSignalID();
 
 	if (body0->checkShouldFireCollisionSignalWith(body1))
 	{
+		manifold->m_signalID = getNextSignalID();
 		m_newSignalizedManifoldsPtr.push_back(manifold);
+	}
+	else
+	{
+		manifold->m_signalID = -1;
 	}
 
 	m_manifoldsPtr.push_back(manifold);
@@ -127,6 +131,11 @@ void btCollisionDispatcher::releaseManifold(btPersistentManifold* manifold)
 	
 	gNumManifold--;
 
+	if (manifold->isValidSignalID())
+	{
+		m_removedSignalizedManifoldsPtr.push_back(manifold->m_signalID);
+	}
+
 	//printf("releaseManifold: gNumManifold %d\n",gNumManifold);
 	clearManifold(manifold);
 
@@ -135,8 +144,6 @@ void btCollisionDispatcher::releaseManifold(btPersistentManifold* manifold)
 	m_manifoldsPtr.swap(findIndex,m_manifoldsPtr.size()-1);
 	m_manifoldsPtr[findIndex]->m_index1a = findIndex;
 	m_manifoldsPtr.pop_back();
-
-	m_removedSignalizedManifoldsPtr.push_back(manifold->m_signalID);
 
 	manifold->~btPersistentManifold();
 	if (m_persistentManifoldPoolAllocator->validPtr(manifold))
