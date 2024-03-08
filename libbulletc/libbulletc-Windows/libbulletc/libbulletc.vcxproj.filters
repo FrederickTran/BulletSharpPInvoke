@@ -1032,6 +1032,9 @@
     <ClCompile Include="..\..\src\src\Bullet3Common\b3Vector3.cpp">
       <Filter>Source Files\Bullet</Filter>
     </ClCompile>
+    <ClCompile Include="..\DebugLogPlugin\DebugCPP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\libbulletc\btSphereBoxCollisionAlgorithm_wrap.h">
@@ -2383,6 +2386,9 @@
     </ClInclude>
     <ClInclude Include="..\..\src\src\Bullet3Common\shared\b3Quat.h">
       <Filter>Source Files\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DebugLogPlugin\DebugCPP.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

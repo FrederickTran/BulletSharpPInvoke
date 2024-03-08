@@ -22,32 +22,32 @@
     <ProjectGuid>{9F698144-F955-4D5F-B4BB-059F13A3C0E7}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>libbulletc</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -80,6 +80,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>D:\Work\Crowd2DTemplate\Assets\Plugins\BulletUnity\Native\$(Platform)</OutDir>
+    <SourcePath>D:\Work\BulletSharpPInvoke\libbulletc\libbulletc-Windows\DebugLogPlugin;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -136,13 +138,17 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NDEBUG;_WINDOWS;_USRDLL;LIBBULLETC_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\..\src\src;$(SolutionDir)..\..\src\Extras\Serialize\BulletWorldImporter;$(SolutionDir)..\..\src\Extras\HACD;$(SolutionDir)..\..\src\Extras\Serialize\BulletXMLWorldImporter;$(SolutionDir)..\..\src\Extras\Serialize\BulletFileLoader;$(SolutionDir)..\..\src\Extras\ConvexDecomposition;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Work\BulletSharpPInvoke\libbulletc\libbulletc-Windows\DebugLogPlugin;$(SolutionDir)..\..\src\src;$(SolutionDir)..\..\src\Extras\Serialize\BulletWorldImporter;$(SolutionDir)..\..\src\Extras\HACD;$(SolutionDir)..\..\src\Extras\Serialize\BulletXMLWorldImporter;$(SolutionDir)..\..\src\Extras\Serialize\BulletFileLoader;$(SolutionDir)..\..\src\Extras\ConvexDecomposition;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>Default</LanguageStandard_C>
+      <EnableModules>true</EnableModules>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>D:\Work\Crowd2DTemplate\Assets\Plugins\DebugLogPlugin\x64\DebugLogPlugin.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -485,6 +491,7 @@
     <ClCompile Include="..\..\src\src\LinearMath\btQuickprof.cpp" />
     <ClCompile Include="..\..\src\src\LinearMath\btSerializer.cpp" />
     <ClCompile Include="..\..\src\src\LinearMath\btVector3.cpp" />
+    <ClCompile Include="..\DebugLogPlugin\DebugCPP.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\Extras\ConvexDecomposition\bestfit.h" />
@@ -937,6 +944,7 @@
     <ClInclude Include="..\..\src\src\LinearMath\btTransform.h" />
     <ClInclude Include="..\..\src\src\LinearMath\btTransformUtil.h" />
     <ClInclude Include="..\..\src\src\LinearMath\btVector3.h" />
+    <ClInclude Include="..\DebugLogPlugin\DebugCPP.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\Extras\HACD\hacdCircularList.inl" />
